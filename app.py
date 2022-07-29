@@ -70,3 +70,17 @@ from df2
 """
 
     st.write(ps.sqldf(request))
+if question == "Question 3":
+    df3=df
+    df3.dropna(subset=['credit_limit'], inplace=True)
+    df3.dropna(subset=['last_payment_date'], inplace=True)
+    df3.loc[(df3['minimum_payments'].isnull()==True),'minimum_payments']=df3['minimum_payments'].mean()
+    df3.loc[(df3['balance'].isnull()==True),'balance']=df3['balance'].mean()
+    df3.loc[(df3['cash_advance'].isnull()==True),'cash_advance']=df3['cash_advance'].mean()
+    df3.isnull().sum()
+
+    corr_df = df3.corr(method='pearson')
+
+    plt.figure(figsize=(20, 20))
+    sns.heatmap(corr_df, annot=True)
+    st.write(ptl)
