@@ -42,7 +42,9 @@ if question=="Question 1":
     plt.ylabel('AMOUNT OF CLIENTS')
     plt.hist(df.balance,bins=25, range=[0,20000])
     st.write("Histogram of the balance amount for all the customers")
-    st.pyplot(plt)
+    col_x, col_y ,col_z = st.columns(3)
+    with col_x:
+        st.pyplot(plt)
     st.write("Insights")
     st.write("More than 70% of users have a balance below the average of 1565")
     st.write("Another piece of information that immediately attracts attention is having so many nulls, especially in the minimum_payments column.")
