@@ -59,3 +59,13 @@ if question=="Question 1":
     st.write(median)
 if question == "Question 2":
     st.write("2.1 Report in a table the following information for customers who activated their account and made their last payment during 2020: cust_id (excluding letters), activated_date (in format YYYY-MM), last_payment_date (in format YYYY-MM-DD), cash_advance, credit_limit, and a calculated field of cash_advance as a percentage of credit_limit.")
+    df2=df
+    df2['activated_date'] = df2['activated_date'].astype('datetime64[ns]')
+    df2['activated_date']=df2['activated_date'].dt.to_period('M')
+    df2['cust_id']=df2['cust_id'].str.replace('C', '')
+    df2['activated_date'] = df2['activated_date'].apply(str)
+    request="""select cust_id,activated_date,last_payment_date,cash_advance,credit_limit,cash_advance/credit_limit*100
+from df2
+"""
+
+    st.write(ps.sqldf(request))
