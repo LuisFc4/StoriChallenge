@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import io
+import pandasql as ps
 import streamlit as st
 
 st.set_page_config(layout="wide")
