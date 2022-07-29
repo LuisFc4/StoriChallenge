@@ -83,4 +83,4 @@ if question == "Question 3":
 
     plt.figure(figsize=(20, 20))
     sns.heatmap(corr_df, annot=True)
-    st.write(ptl)
+    st.write(plt.show())
