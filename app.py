@@ -86,3 +86,29 @@ if question == "Question 3":
     col_x, col_y ,col_z = st.columns(3)
     with col_x:
         st.pyplot(plt)
+    st.write("select count(*), fraud from df3 where purchases=oneoff_purchases group by fraud")
+    q1="""
+    select count(*), fraud 
+    from df3
+    where purchases=oneoff_purchases
+    group by fraud
+    """
+    st.write(ps.sqldf(q1))
+    st.write("select round(purchases/10000,1), count(fraud) from df3 where fraud=1 group by round(purchases/10000,1)")
+    q3="""
+    select round(purchases/10000,1), count(fraud) 
+    from df3
+    where fraud=1 
+    group by round(purchases/10000,1)
+    """
+    st.write(ps.sqldf(q3))
+    st.write("    select count(*), fraud from df3 where (purchases>14500 and oneoff_purchases>1500 group by fraud")
+    q4="""
+    select count(*), fraud 
+    from df3
+    where (purchases>14500	and oneoff_purchases>1500)
+    group by fraud
+    """
+    st.write(ps.sqldf(q4))
+    st.write("As we can see, the variables with the highest correlation are pursaches and oneoff_pursaches, that is why I base myself on these to create my model, which reduces 26 of the 70 cases of fraud, which represents a reduction of 70%")
+    st.write("To consider the values to take against pursache fraud and this is how to determine the threshold of the metrics")
