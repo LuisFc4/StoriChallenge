@@ -14,6 +14,7 @@ os.system("python -m pip install -r requirements.txt")
 df=pd.read_csv('dataStori.csv',encoding='utf-8')
 
 st.title("Stori Data Challenge 2021")
+st.write("Jose_Luis_Gamiño_Gonzalez")
 st.write("For this challenge we will use a fake credit card dataset that is attached as df.csv, which includes information from a public Kaggle dataset with three added fields: activated_date,last_payment_date and fraud.")
 df=df.drop(columns='Unnamed: 0')
 st.write(df)
